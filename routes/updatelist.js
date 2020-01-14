@@ -13,7 +13,7 @@ router.post('/update', function(req,res) {
 	}
 	let updateStr = initUpdateStr(newParams);
 	
-	const sqlList = `UPDATE usermanage SET ${updateStr} WHERE id = '${params.id}'`; /*查询列表*/
+	const sqlList = `UPDATE usermanage SET ${updateStr}, updateTime = NOW() WHERE id = '${params.id}'`; /*查询列表*/
 	pool.getConnection((err, conn) => {
 		conn.query(`${sqlList}`, (error, results) => {   //因为查询语句的条件都相同  则需把查询值 重复两遍即为[...sqlArr,...sqlArr]
 			if (error) throw error

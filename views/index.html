@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$.ajax({
+			    url:"http://172.20.37.161:3000/lists/get",    //请求的url地址
+			    dataType:"json",   //返回格式为json
+			    async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+			    data:{age:"26", userName:"提莫"},    //参数值
+			    type:"post",   //请求方式
+			    success:function(res){
+			        //请求成功时处理
+					let { data } = res;
+					console.log(data)
+			    },
+			    error:function(){
+			        //请求出错处理
+			    }
+			});
+			// $.ajax({
+			//     url:"http://172.20.37.161:3000/list/create",    //请求的url地址
+			//     dataType:"json",   //返回格式为json
+			//     data:{"userName":"857","userPwd":"25","sex":"8","phone":"74","age":"44"},    //参数值
+			//     type:"post",   //请求方式
+			//     success:function(res){
+			//         //请求成功时处理
+			// 		let { data } = res;
+			// 		console.log(data)
+			//     },
+			//     error:function(){
+			//         //请求出错处理
+			//     }
+			// });
+			
+			let val = ["dfs","sfs"];
+			let str = "";
+			for(let i in val){
+				if(i==0){
+					str = str + "'" + val[i] + "'";
+				}else{
+					str = str + ",'" + val[i] + "'";
+				}
+			}
+			
+		</script>
+	</body>
+</html>
